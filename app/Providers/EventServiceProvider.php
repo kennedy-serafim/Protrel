@@ -2,10 +2,13 @@
 
 namespace App\Providers;
 
+use App\Events\Illuminate\Events\CountViews as EventsCountViews;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
+
+use App\Listeners\Illuminate\Listeners\UpdateNumberVisualization as ListenersUpdateNumberVisualization;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -18,6 +21,9 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        EventsCountViews::class =>[
+            ListenersUpdateNumberVisualization::class,
+        ]
     ];
 
     /**
@@ -27,6 +33,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        parent::boot();
         //
     }
 }
