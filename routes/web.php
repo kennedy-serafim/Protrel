@@ -5,13 +5,14 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Auth::routes(['verify' => true]);
+Auth::routes([
+	'verify'   => false,
+	'register' => false
+]);
 
 //===================== Not Authentication Required =====================
 
-Route::get('/', function () {
-	return view('welcome');
-});
+Route::get('/', [HomeController::class, 'welcome']);
 
 
 // ===================== Authentication Required =====================

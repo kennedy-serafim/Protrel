@@ -1,4 +1,4 @@
-<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="background-image: url(../assets/img/hero-bg.jpg); background-size: cover; background-position: center top;">
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center secondary-gradient-color" >
     <!-- Mask -->
     <span class="mask bg-gradient-default opacity-3"></span>
     <!-- Header container -->

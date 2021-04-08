@@ -42,7 +42,11 @@
 }
 
 .nav-active {
-    background: var(--secondary-color);
+    background: linear-gradient(
+        90deg,
+        rgba(24, 165, 231, 1) 0%,
+        rgba(221, 47, 110, 1) 100%
+    );
     padding-top: 1rem;
     padding-bottom: 1rem;
     color: #fff;

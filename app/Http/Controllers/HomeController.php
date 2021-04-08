@@ -23,4 +23,13 @@ class HomeController extends Controller
     {
         return view('dashboard');
     }
+
+    public function welcome()
+    {
+        if (auth()->user()) {
+            return redirect()->route('home');
+        } else {
+            return view('welcome');
+        }
+    }
 }

@@ -1,21 +1,17 @@
 <!-- Top navbar -->
 <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+
     <div class="container-fluid">
 
         <!-- Brand -->
         <span class="text-white">
             <i class="icofont-home"></i>
             {{ Auth()->user()->employee->company->name }}
+            <a href="javascript:void(0)" class="ml-3 text-white"> <i class="fas fa-bell mr-1"></i> </a>
         </span>
 
         <!-- User -->
         <ul class="navbar-nav align-items-center d-none d-md-flex">
-            <li class="nav-item">
-                <a href="javascript:void(0)" class="nav-link pr-0">
-                    <i class="fas fa-bell mr-3"></i>
-                </a>
-            </li>
-
             <li class="nav-item dropdown">
                 <a class="nav-link px-0" href="javascript:void(0)" data-turbolinks="false" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

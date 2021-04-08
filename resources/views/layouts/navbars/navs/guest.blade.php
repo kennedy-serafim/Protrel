@@ -26,11 +26,11 @@
             <div class="col-12 col-md-10 d-none d-lg-block">
                 <nav class="site-navigation position-relative text-right" role="navigation">
                     <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                        <li class="active"><a href="javascript:void(0)" class="nav-link">Perguntas Frequentes</a></li>
+                        <li><a href="javascript:void(0)" class="nav-link">Perguntas Frequentes</a></li>
                         <li><a href="javascript:void(0)" class="nav-link">Serviços</a></li>
                         <li><a href="javascript:void(0)" class="nav-link">Sobre nós</a></li>
                         <li><a href="javascript:void(0)" class="nav-link">Contactar</a></li>
-                        <li><a href="{{ route('home') }}" class="nav-link">Entrar</a></li>
+                        <li class="active"><a href="{{ route('home') }}" class="nav-link">Entrar</a></li>
                     </ul>
                 </nav>
             </div>

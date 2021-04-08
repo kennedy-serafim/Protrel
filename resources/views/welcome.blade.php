@@ -64,15 +64,6 @@
                             </small>
                         </div>
 
-                        <div class='col-6'>
-                            <a href="{{ route('register') }}" class="btn btn-outline-white">
-                                <i class="icofont-music-disk"></i>
-                                Registar
-                            </a>
-                            <small id="SignInHelt" class="form-text text-muted text-white">
-                                Ainda não tem uma conta?
-                            </small>
-                        </div>
                     </div>
                 </div>
             </div>
