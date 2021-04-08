@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\AdministratorsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -29,7 +28,4 @@ Route::group(['middleware' => 'auth'], function () {
 // ===================== Administrators =====================
 
 Route::group(['middleware' => 'role:Administrador'], function () {
-	Route::prefix('administrators')->group(function () {
-		Route::get('/', [AdministratorsController::class, 'index'])->name('administrators.index');
-	});
 });

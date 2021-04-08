@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'ACS Team') }}</title>
+    <title>{{ config('app.name', 'M&A Mapinduzi') }}</title>
 
     <!-- Favicon -->
     <link href="{{ asset('assets/img/icons/favicon.png') }}" rel="icon" type="image/jpg">
@@ -27,7 +27,6 @@
     <link type="text/css" href="{{ asset('assets/vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
     <link type="text/css" href="{{ asset('assets/vendor/jquery-ui-1.12.1/jquery-ui.min.css') }}" rel="stylesheet">
     <link type="text/css" href="{{ asset('assets/vendor/jquery-ui-1.12.1/jquery-ui.theme.min.css') }}" rel="stylesheet">
-    {{-- <link type="text/css" href="{{ asset('assets/vendor/summernote-0.8.18/summernote-bs4.min.css') }}" rel="stylesheet"> --}}
     <link type="text/css" href="{{ asset('assets/vendor/summernote-0.8.18/summernote-lite.min.css') }}" rel="stylesheet">
     <link type="text/css" href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link type="text/css" href="{{ asset('argon/css/argon.css') }}" rel="stylesheet">
@@ -59,11 +58,9 @@
     <script src="{{ asset('assets/vendor/jquery.easing/jquery.easing.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
     <script src="{{ asset('assets/vendor/owl.carousel/owl.carousel.min.js') }}"></script>
-    {{-- <script src="{{ asset('assets/vendor/summernote-0.8.18/summernote-bs4.min.js') }}"></script> --}}
     <script src="{{ asset('assets/vendor/summernote-0.8.18/summernote-lite.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/jquery-sticky/jquery.sticky.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
-    <script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/jquery-mask/jquery.mask.js') }}"></script>
     <script src="{{ asset('assets/vendor/jquery-ui-1.12.1/jquery-ui.min.js') }}"></script>

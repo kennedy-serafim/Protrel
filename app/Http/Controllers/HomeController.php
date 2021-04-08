@@ -21,8 +21,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view(
-            strtolower(auth()->user()->getRoleNames()[0]) . '.dashboard'
-        );
+        return view('dashboard');
     }
 }

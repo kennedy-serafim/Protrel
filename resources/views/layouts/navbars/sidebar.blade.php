@@ -6,10 +6,10 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <h1 class="my-0 site-logo">
+        <h1 class="my-0 site-logo text-center">
             <a href="{{ url('/') }}" class="mb-0 text-secondary-color">
-                <i class="fas fa-drum"></i>
-                {{ config('app.name','ACS Team') }}
+                <i class="icofont-tow-truck"></i>
+                {{ config('app.name','M&A Mapinduzi') }}
             </a>
         </h1>
 
@@ -55,8 +55,8 @@
                     <div class="col-8 collapse-brand">
                         <h1 class="mb-0 site-logo">
                             <a href="{{ url('/') }}" class="mb-0 text-secondary-color">
-                                <i class="fas fa-drum"></i>
-                                {{ config('app.name','ACS Team') }}
+                                <i class="icofont-tow-truck"></i>
+                                {{ config('app.name','M&A Mapinduzi') }}
                             </a>
                         </h1>
                     </div>

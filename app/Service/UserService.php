@@ -20,7 +20,7 @@ class UserService
         try {
             // $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
 
-            $user = User::create($data);
+            $user  = User::create($data);
             $roles = Role::all();
 
             foreach ($roles as $role) {

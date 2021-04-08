@@ -16,8 +16,8 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $administrator = User::create([
-            'email'                 => 'administrator@protrel.com',
-            'password'              => 'wimbo',
+            'email'                 => 'administrador@protrel.com',
+            'password'              => 'protrel',
             'email_verified_at'     => now(),
         ]);
 
@@ -25,7 +25,6 @@ class UsersTableSeeder extends Seeder
 
         foreach ($roles as $role) {
             if ($role->name == 'Administrador') {
-
                 $administrator->assignRole($role);
             }
         }

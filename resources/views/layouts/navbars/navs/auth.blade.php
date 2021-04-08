@@ -3,25 +3,28 @@
     <div class="container-fluid">
 
         <!-- Brand -->
-
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb text-uppercase bg-transparent d-none d-lg-flex">
-                <li class="breadcrumb-item {{ $dashboard == 'Dashboard' ? 'd-none' : 'd-block'}}">
-                    <a href="{{ route('home') }}" class='text-white'>Dashboard</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">{{ $dashboard ?? 'Dashboard' }}</li>
-            </ol>
-        </nav>
+        <span class="text-white">
+            <i class="icofont-home"></i>
+            {{ Auth()->user()->employee->company->name }}
+        </span>
 
         <!-- User -->
         <ul class="navbar-nav align-items-center d-none d-md-flex">
+            <li class="nav-item">
+                <a href="javascript:void(0)" class="nav-link pr-0">
+                    <i class="fas fa-bell mr-3"></i>
+                </a>
+            </li>
+
             <li class="nav-item dropdown">
-                <a class="nav-link px-0" href="javascript:void(0)" data-turbolinks="false" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link px-0" href="javascript:void(0)" data-turbolinks="false" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="media align-items-center">
                         <span class="avatar avatar-sm rounded-circle">
                         </span>
                         <div class="media-body ml-2 d-none d-lg-block">
                             <span class="mb-0 text-sm font-weight-bold">
+                                {{ Auth()->user()->employee->firstname . ' ' . Auth()->user()->employee->lastname }}
                             </span>
                         </div>
                     </div>

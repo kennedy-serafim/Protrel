@@ -22,9 +22,9 @@
             <div class="col-12 hero-text-image">
                 <div class="row">
                     <div class="col-lg-5 text-center text-lg-left">
-                        <h1 data-aos="fade-right">VENDA E COMPRE CONNOSCO</h1>
+                        <h1 data-aos="fade-right">Terceirize o Seu Negocio</h1>
                         <p class="mb-5" data-aos="fade-right" data-aos-delay="100">
-                            100% MÚSICA <span class="">MOÇAMBICANA</span>
+                            Pessoal 100% Especializado
                         </p>
                     </div>
 
@@ -32,7 +32,7 @@
                         <div class="row justify-content-center">
 
                             <div>
-                                <div class="card bg-secondary shadow border-0">
+                                <div class="card bg-secondary shadow border-1">
 
                                     {{-- Body --}}
                                     <div class="card-body px-lg-5 py-lg-2">

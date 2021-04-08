@@ -22,14 +22,14 @@
             <div class="col-12 hero-text-image">
                 <div class="row">
                     <div class="col-lg-7 text-center text-lg-left">
-                        <h1 data-aos="fade-right">VENDA E COMPRE CONNOSCO</h1>
+                        <h1 data-aos="fade-right">Terceirize o Seu Negocio</h1>
                         <p class="mb-5" data-aos="fade-right" data-aos-delay="100">
-                            100% MÚSICA MOÇAMBICANA
+                            Pessoal 100% Especializado
                         </p>
                         <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500">
                             <a href="javascript:void(0)" class="btn btn-outline-white">
-                                <i class="icofont-music-disk"></i>
-                                COMPRAR
+                                <i class="icofont-support"></i>
+                                Contactar
                             </a>
                         </p>
                     </div>
