@@ -36,8 +36,8 @@
                                 <i class="icofont-ui-user"></i>
                             </span>
                         </div>
-                        <input class="form-control {{ $errors->has('nuit') ? ' is-invalid' : '' }}"
-                            wire:model.debounce='nuit' nuit='nuit' id='companyNuit' placeholder="Nuit da companhia"
+                        <input class="form-control f-nuit {{ $errors->has('nuit') ? ' is-invalid' : '' }}"
+                            wire:model.debounce='nuit' name='nuit' id='companyNuit' placeholder="Nuit da companhia"
                             type="text">
                     </div>
 
@@ -150,7 +150,7 @@
             </div>
 
             <div class="form-group">
-                <button type="button" class="btn secondary-color" wire:click='hideCollapse'>
+                <button type="button" id="btnCancelCompanyCollapse" class="btn secondary-color" wire:click='hideCollapse'>
                     <i class="far fa-times-circle"></i>
                     Cancelar
                 </button>

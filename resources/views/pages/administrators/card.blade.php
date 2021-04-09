@@ -22,8 +22,8 @@
                             </div>
 
                             <div class="col-auto  mx-auto d-flex justify-content-center align-items-center">
-                                <div class="icon icon-shape bg-warning text-white rounded-circle shadow ">
-                                    <i class="icofont-cart-alt"></i>
+                                <div class="icon icon-shape bg-primary text-white rounded-circle shadow ">
+                                    <i class="icofont-chart-line-alt"></i>
                                 </div>
                             </div>
                         </div>
@@ -53,9 +53,9 @@
                                 </span>
                             </div>
 
-                            <div class="col-auto  mx-auto d-flex justify-content-center align-items-center">
-                                <div class="icon icon-shape primary-color text-white rounded-circle shadow ">
-                                    <i class="fas fa-retweet"></i>
+                            <div class="col-auto mx-auto d-flex justify-content-center align-items-center">
+                                <div class="icon icon-shape bg-default text-white rounded-circle shadow ">
+                                    <i class="icofont-search-folder"></i>
                                 </div>
                             </div>
                         </div>
@@ -87,7 +87,7 @@
 
                             <div class="col-auto  mx-auto d-flex justify-content-center align-items-center">
                                 <div class="icon icon-shape bg-danger text-white rounded-circle shadow ">
-                                    <i class="icofont-microphone-alt"></i>
+                                    <i class="icofont-workers-group"></i>
                                 </div>
                             </div>
                         </div>

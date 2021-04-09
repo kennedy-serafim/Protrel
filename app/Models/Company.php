@@ -27,4 +27,35 @@ class Company extends Model implements Transformable
     {
         return $this->hasMany(Contest::class);
     }
+
+    // Mutators
+    public function getNameAttribute()
+    {
+        return strtoupper(trim($this->attributes['name']));
+    }
+
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = ucfirst(trim($value));
+    }
+
+    public function getManagerAttribute()
+    {
+        return strtoupper(trim($this->attributes['manager']));
+    }
+
+    public function setManagerAttribute($value)
+    {
+        $this->attributes['manager'] = ucfirst(trim($value));
+    }
+
+    public function getAddressAttribute()
+    {
+        return trim($this->attributes['manager']);
+    }
+
+    public function setAddressAttribute($value)
+    {
+        $this->attributes['manager'] = ucfirst(trim($value));
+    }
 }

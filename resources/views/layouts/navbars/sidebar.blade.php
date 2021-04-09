@@ -2,21 +2,24 @@
     <div class="container-fluid">
 
         <!-- Toggler -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main"
+            aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <h1 class="my-0 site-logo text-center">
             <a href="{{ url('/') }}" class="mb-0 text-secondary-color">
                 <i class="icofont-tow-truck"></i>
-                {{ config('app.name','M&A Mapinduzi') }}
+                {{ config('app.name', 'M&A Mapinduzi') }}
             </a>
+
         </h1>
 
         <!-- User -->
         <ul class="nav align-items-center d-md-none">
             <li class="nav-item dropdown" data-turbolinks="false">
-                <a class="nav-link" href="" data-turbolinks="false" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link" href="" data-turbolinks="false" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
                     <div class="media align-items-center">
                         <span class="avatar avatar-sm rounded-circle">
                         </span>
@@ -56,13 +59,15 @@
                         <h1 class="mb-0 site-logo">
                             <a href="{{ url('/') }}" class="mb-0 text-secondary-color">
                                 <i class="icofont-tow-truck"></i>
-                                {{ config('app.name','M&A Mapinduzi') }}
+                                {{ config('app.name', 'M&A Mapinduzi') }}
                             </a>
                         </h1>
                     </div>
 
                     <div class="col-4 collapse-close">
-                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                        <button type="button" class="navbar-toggler" data-toggle="collapse"
+                            data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false"
+                            aria-label="Toggle sidenav">
                             <span></span>
                             <span></span>
                         </button>
@@ -73,7 +78,8 @@
             <!-- Navigation -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link {{$elementActive == 'Dashboard' ? 'nav-active text-white' : ''}}" href="{{ route('home') }}">
+                    <a class="nav-link {{ $elementActive == 'Dashboard' ? 'nav-active text-white' : '' }}"
+                        href="{{ route('home') }}">
                         <i class="fas fa-home"></i>
                         Home
                     </a>
@@ -82,11 +88,9 @@
 
             <!-- Navigation -->
             <ul class="navbar-nav">
-
                 @role('Administrador')
                 @include('pages.administrators.sidenav')
                 @endrole
-
             </ul>
 
             <!-- Divider -->
@@ -94,11 +98,13 @@
 
             <!-- Heading -->
             <h6 class="navbar-heading text-muted">Configurações</h6>
+
             <!-- Navigation -->
             <ul class="navbar-nav mb-md-3">
                 <li class="nav-item">
-                    <a class="nav-link {{$elementActive == 'Profile' ? 'nav-active text-white' : ''}}" href="{{ route('profile.edit') }}">
-                        <i class="fas fa-user-cog"></i>
+                    <a class="nav-link {{ $elementActive == 'Profile' ? 'nav-active text-white' : '' }}"
+                        href="{{ route('profile.edit') }}">
+                        <i class="icofont-ui-settings"></i>
                         Dados Pessoais
                     </a>
                 </li>
