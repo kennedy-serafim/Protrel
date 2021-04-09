@@ -58,7 +58,7 @@ class CompaniesController extends Controller
             ]);
         }
 
-        return view('companies.index', compact('companies'));
+        return view('pages.companies.index', compact('companies'));
     }
 
     /**

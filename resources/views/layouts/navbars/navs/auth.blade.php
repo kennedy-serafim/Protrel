@@ -4,12 +4,16 @@
     <div class="container-fluid">
 
         <!-- Brand -->
-        <span class="text-white">
-            <i class="icofont-home"></i>
-            {{ Auth()->user()->employee->company->name }}
-            <a href="javascript:void(0)" class="ml-3 text-white"> <i class="fas fa-bell mr-1"></i> </a>
-        </span>
+        <div class="d-none d-md-flex justify-content-between">
+            <a href="javascript:void(0)" class="text-white ">
+                <i class="icofont-home"></i>
+                {{ Auth()->user()->employee->company->name }}
+            </a>
+        </div>
 
+        <a href="javascript:void(0)" class="ml-3 text-white">
+            <i class="fas fa-bell mr-1"></i>
+        </a>
         <!-- User -->
         <ul class="navbar-nav align-items-center d-none d-md-flex">
             <li class="nav-item dropdown">

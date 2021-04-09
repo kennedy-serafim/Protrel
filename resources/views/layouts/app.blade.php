@@ -53,15 +53,17 @@
     {{-- -------------------------Javascript-------------------------------- --}}
 
     <script src="{{ asset('argon/vendor/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    
     <script src="{{ asset('argon/js/argon.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('assets/vendor/jquery.easing/jquery.easing.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
     <script src="{{ asset('assets/vendor/owl.carousel/owl.carousel.min.js') }}"></script>
+    {{-- <script src="{{ asset('assets/vendor/summernote-0.8.18/summernote-bs4.min.js') }}"></script> --}}
     <script src="{{ asset('assets/vendor/summernote-0.8.18/summernote-lite.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/jquery-sticky/jquery.sticky.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
-    <script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/jquery-mask/jquery.mask.js') }}"></script>
     <script src="{{ asset('assets/vendor/jquery-ui-1.12.1/jquery-ui.min.js') }}"></script>
 

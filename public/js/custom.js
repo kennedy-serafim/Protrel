@@ -3,6 +3,28 @@ window.addEventListener("swal", function (e) {
     Swal.fire(e.detail);
 });
 
+window.addEventListener('openDeleteCompanyModal', event => {
+    $('#deleteCompanyModal').modal('show');
+});
+
+window.addEventListener('closeDeleteCompanyModal', event => {
+    $('#deleteCompanyModal').modal('hide');
+});
+
+window.addEventListener('openUpdateCompanyModal', event => {
+    $('#updateCompanyModal').modal('show');
+});
+
+window.addEventListener('closeUpdateCompanyModal', event => {
+    $('#updateCompanyModal').modal('hide');
+});
+window.addEventListener('companyCreateCollapseHide', event => {
+    $('#newCompanyCollapse').collapse('hide');
+});
+
+
+
+
 // ========================== Validation ===========================
 
 // Fields Formatter

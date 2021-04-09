@@ -72,7 +72,7 @@
 
             <!-- Navigation -->
             <ul class="navbar-nav">
-                <li class="nav-item hvr-underline-from-center">
+                <li class="nav-item">
                     <a class="nav-link {{$elementActive == 'Dashboard' ? 'nav-active text-white' : ''}}" href="{{ route('home') }}">
                         <i class="fas fa-home"></i>
                         Home
@@ -83,11 +83,12 @@
             <!-- Navigation -->
             <ul class="navbar-nav">
 
-                @role('Administrators')
-                @include('administrators.sidebar')
+                @role('Administrador')
+                @include('pages.administrators.sidenav')
                 @endrole
 
             </ul>
+
             <!-- Divider -->
             <hr class="my-1">
 
