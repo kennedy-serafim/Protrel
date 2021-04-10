@@ -33,7 +33,7 @@ class CreateContestsTable extends Migration
 			$table->softDeletes();
 
 			$table->foreign('company_id')->references('id')->on('companies')->onDelete('CASCADE');
-			$table->foreign('manager_id')->references('id')->on('employees')->onDelete('CASCADE');
+			$table->foreign('manager_id')->references('id')->on('employees')->onDelete('SET NULL');
 			
 		});
 	}

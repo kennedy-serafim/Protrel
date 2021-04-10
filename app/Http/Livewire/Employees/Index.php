@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Livewire\Companies;
+namespace App\Http\Livewire\Employees;
 
 use App\Models\Company;
+use App\Models\Employee;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -15,9 +16,10 @@ class Index extends Component
     ];
 
     private $search         = false;
-    private $companies      = [];
+    private $employees      = [];
 
-    public $companyId, $perPage = 5, $name, $status, $companyStatus = ['Activo', 'Inactivo'];
+    public $employeeId, $perPage = 5, $name, $company, $status, $companyStatus = ['Activo', 'Inactivo'];
+    public $firstname, $lastname, $phone, $email, $address;
 
     /**
      * Custom pagination
@@ -27,18 +29,16 @@ class Index extends Component
         return 'livewire.custom.pagination-links';
     }
 
-    /**
-     * 
-     */
     public function render()
     {
         if (!$this->search) { //Choose how to show data table
-            $this->companies = Company::query()->latest('created_at')->paginate($this->perPage);
+            $this->employees = Employee::query()->latest('created_at')->paginate($this->perPage);
         }
 
-        return view('livewire.companies.index', [
-            'companies' => $this->companies,
-            'total'     => Company::all()->count()
+        return view('livewire.employees.index', [
+            'employees' => $this->employees,
+            'companies' => Company::query()->orderBy('name', 'ASC')->get(),
+            'total'     => Employee::all()->count(),
         ]);
     }
 
@@ -46,34 +46,32 @@ class Index extends Component
     {
         $value           = trim(strtoupper($value));
 
-        $this->companies =  Company::where('name', 'like', "%$value%")
-            ->orderBy('name', 'ASC')
+        $this->employees = Employee::query()
+            ->where('firstname', 'like', '%' . $value . '%')
+            ->orWhere('lastname', 'like', '%' . $value . '%')
+            ->orderBy('firstname', 'ASC')
             ->paginate($this->perPage);
 
         $this->search    = true;
     }
 
-    public function updatedStatus($value)
+    public function updatedCompany($value)
     {
-        if ($value != "0") {
-            $operator = $value == 'Activo' ? '=' : '<>';
-
-            $this->companies =  Company::query()
-                ->join('employees', 'employees.company_id', $operator, 'companies.id')
-                ->latest('companies.created_at')
-                ->paginate($this->perPage);
-
-            $this->search = true;
-            $this->name   = '';
-        }
+        $this->employees = Employee::query()
+            ->where('company_id', '=', $value)
+            ->orderBy('firstname', 'ASC')
+            ->paginate($this->perPage);
+        $this->search    = true;
     }
 
-
-    public function action($actionType, $companyId)
+    /**
+     * 
+     */
+    public function action($actionType, $employeeId)
     {
-        $companies           = Company::find($companyId);
-        $this->name          = $companies->name;
-        $this->companyId     = $companies->id;
+        $employee           = Employee::find($employeeId);
+        $this->name         = $employee->firstname . ' ' . $employee->lastname;
+        $this->employeeId   = $employee->id;
 
         if (!auth()->user()->roles->where('name', '=', 'Administrador')) {
             $this->dispatchBrowserEvent('swal', [
@@ -86,25 +84,23 @@ class Index extends Component
             ]);
         } else {
             if ($actionType == 'excluir') {
-                $this->dispatchBrowserEvent('openDeleteCompanyModal');
+                $this->dispatchBrowserEvent('openDeleteEmployeeModal');
             } elseif ($actionType == 'atualizar') {
-                $this->dispatchBrowserEvent('openUpdateCompanyModal');
+                $this->dispatchBrowserEvent('openUpdateEmployeeModal');
             }
         }
 
-        $this->companies = Company::query()->latest('created_at')->paginate($this->perPage);
+        $this->employees = Employee::query()->latest('created_at')->paginate($this->perPage);
     }
 
     public function destroy()
     {
-        $this->dispatchBrowserEvent('closeDeleteCompanyModal');
+        $this->dispatchBrowserEvent('closeDeleteEmployeeModal');
 
         try {
-            $companies = Company::find($this->companyId);
-
-            if ($companies->id == auth()->user()->employee->company->id) {
+            if ($this->employeeId == auth()->user()->employee->id) {
                 $this->dispatchBrowserEvent('swal', [
-                    'title'             => 'Não podes excluir o registo da companhia na qual fazes parte.',
+                    'title'             => 'Não é possível apagar a sua própria conta.',
                     'timer'             => 3000,
                     'icon'              => 'warning',
                     'toast'             => false,
@@ -112,9 +108,10 @@ class Index extends Component
                     'timerProgressBar'  => true,
                 ]);
             } else {
-                $companies->delete();
+                $employee = Employee::find($this->employeeId);
+                $employee->delete();
                 $this->dispatchBrowserEvent('swal', [
-                    'title'             => 'Companhia Excluída com Sucesso.',
+                    'title'             => 'Funcionário Excluído com Sucesso.',
                     'timer'             => 3000,
                     'icon'              => 'success',
                     'toast'             => true,

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CompaniesController;
+use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -32,5 +33,6 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group(['middleware' => 'role:Administrador'], function () {
 	Route::prefix('administrator')->group(function () {
+		Route::get('/employees', [EmployeesController::class, 'index'])->name('employees.index');
 	});
 });
