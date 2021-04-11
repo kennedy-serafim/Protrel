@@ -17,7 +17,7 @@
         <!-- User -->
         <ul class="navbar-nav align-items-center d-none d-md-flex">
             <li class="nav-item dropdown">
-                <a class="nav-link px-0" href="javascript:void(0)" data-turbolinks="false" role="button"
+                <a class="nav-link px-0" href="/" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="media align-items-center">
                         <span class="avatar avatar-sm rounded-circle">
