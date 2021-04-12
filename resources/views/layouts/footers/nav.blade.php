@@ -1,27 +1,57 @@
 <div class="row align-items-center justify-content-xl-between">
-    <div class="col-xl-6">
+    <div class="col-xl-4">
         <div class="copyright text-center text-xl-left text-muted">
-            &copy; {{ now()->year }} <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a> &amp;
-            <a href="https://www.updivision.com" class="font-weight-bold ml-1" target="_blank">Updivision</a>
+            &copy; {{ now()->year }}
+            <a href="javascript:void(0)" class="font-weight-bold ml-1 text-primary-color ">
+                {{ config('app.name', 'M&A Mapinduzi') }}
+            </a>
         </div>
     </div>
+
     <div class="col-xl-6">
         <ul class="nav nav-footer justify-content-center justify-content-xl-end">
             <li class="nav-item">
-                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
+                <a href="javascript:void(0)" class="nav-link">
+                    Atendimento
+                </a>
             </li>
             <li class="nav-item">
-                <a href="https://www.updivision.com" class="nav-link" target="_blank">Updivision</a>
+                <a href="javascript:void(0)" class="nav-link">
+                    Comunicação
+                </a>
             </li>
             <li class="nav-item">
-                <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
+                <a href="javascript:void(0)" class="nav-link">
+                    Notícias
+                </a>
             </li>
             <li class="nav-item">
-                <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
-            </li>
-            <li class="nav-item">
-                <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
+                <a href="javascript:void(0)" class="nav-link">
+                    Fale connosco
+                </a>
             </li>
         </ul>
     </div>
+
+    <div class="col-xl-2">
+        <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+            <li class="nav-item">
+                <a href="https://wa.me/258855856582?text=Olá%20Gostaria%20de%20um%20suporte%20técnico" class="nav-link"
+                    target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:void(0)" class="nav-link" target="_blank">
+                    <i class="fab fa-facebook-messenger"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="mailto:serafim.kennedy@outlook.com" class="nav-link" target="_blank">
+                    <i class="far fa-envelope"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
 </div>

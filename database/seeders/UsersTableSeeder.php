@@ -1,9 +1,9 @@
 <?php
 namespace Database\Seeders;
 
-use Illuminate\Support\Facades\DB;
+use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class UsersTableSeeder extends Seeder
 {
@@ -14,13 +14,18 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => 'Admin Admin',
-            'email' => 'admin@argon.com',
-            'email_verified_at' => now(),
-            'password' => Hash::make('secret'),
-            'created_at' => now(),
-            'updated_at' => now()
+        $administrator = User::create([
+            'email'                 => 'administrador@protrel.com',
+            'password'              => 'protrel',
+            'email_verified_at'     => now(),
         ]);
+
+        $roles = Role::all();
+
+        foreach ($roles as $role) {
+            if ($role->name == 'Administrador') {
+                $administrator->assignRole($role);
+            }
+        }
     }
 }

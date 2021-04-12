@@ -1,55 +1,49 @@
-<nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
-    <div class="container px-4">
-        <a class="navbar-brand" href="{{ route('home') }}">
-            <img src="{{ asset('argon') }}/img/brand/white.png" />
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbar-collapse-main">
-            <!-- Collapse header -->
-            <div class="navbar-collapse-header d-md-none">
-                <div class="row">
-                    <div class="col-6 collapse-brand">
-                        <a href="{{ route('home') }}">
-                            <img src="{{ asset('argon') }}/img/brand/blue.png">
-                        </a>
-                    </div>
-                    <div class="col-6 collapse-close">
-                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
-                            <span></span>
-                            <span></span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!-- Navbar items -->
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link nav-link-icon" href="{{ route('home') }}">
-                        <i class="ni ni-planet"></i>
-                        <span class="nav-link-inner--text">{{ __('Dashboard') }}</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-icon" href="{{ route('register') }}">
-                        <i class="ni ni-circle-08"></i>
-                        <span class="nav-link-inner--text">{{ __('Register') }}</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-icon" href="{{ route('login') }}">
-                        <i class="ni ni-key-25"></i>
-                        <span class="nav-link-inner--text">{{ __('Login') }}</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-icon" href="{{ route('profile.edit') }}">
-                        <i class="ni ni-single-02"></i>
-                        <span class="nav-link-inner--text">{{ __('Profile') }}</span>
-                    </a>
-                </li>
-            </ul>
+<!-- ======= Mobile Menu ======= -->
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+            <span class="icofont-close js-menu-toggle"></span>
         </div>
     </div>
-</nav>
+    <div class="site-mobile-menu-body"></div>
+</div>
+
+<!-- ======= Header ======= -->
+<header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col-6 col-lg-2">
+                <h1 class="mb-0 site-logo">
+                    <a href="{{ url('/') }}" class="mb-0">
+                        <i class="icofont-tow-truck"></i>
+                        {{ config('app.name', 'M&A Mapinduzi') }}
+                    </a>
+                </h1>
+            </div>
+
+            <div class="col-12 col-md-10 d-none d-lg-block">
+                <nav class="site-navigation position-relative text-right" role="navigation">
+                    <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                        <li><a href="javascript:void(0)" class="nav-link">Perguntas Frequentes</a></li>
+                        <li><a href="javascript:void(0)" class="nav-link">Serviços</a></li>
+                        <li><a href="javascript:void(0)" class="nav-link">Sobre nós</a></li>
+                        <li><a href="javascript:void(0)" class="nav-link">Contactar</a></li>
+                        <li class="active"><a href="{{ route('home') }}" class="nav-link">Entrar</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="col-6 d-inline-block d-lg-none ml-md-0 py-3" style="position: relative; top: 3px;">
+
+                <a href="#" class="burger site-menu-toggle js-menu-toggle" data-toggle="collapse"
+                    data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</header>
