@@ -11,7 +11,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('welcome');
     }
 
     /**
@@ -22,5 +22,14 @@ class HomeController extends Controller
     public function index()
     {
         return view('dashboard');
+    }
+
+    public function welcome()
+    {
+        if (auth()->user()) {
+            return redirect()->route('home');
+        } else {
+            return view('welcome');
+        }
     }
 }

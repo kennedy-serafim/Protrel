@@ -62,7 +62,6 @@
         @include('layouts.footers.guest')
     @endguest
 
-
 </body>
 
 </html>

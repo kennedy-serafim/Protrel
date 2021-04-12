@@ -30,6 +30,5 @@ class EmployeeTableSeeder extends Seeder
             'phone'             => '84 000 444 0',
             'email'             => 'protrel@gmail.com',
             'address'           => 'Rua Samora Machel,Bairro Magoanine C, R/C. N:8',
-        ]); 
     }
 }

@@ -33,6 +33,7 @@
                                 <div class="collapse" id="newCompanyCollapse">
                                     <div class="card card-body">
                                         @include('pages.companies.create')
+
                                     </div>
                                 </div>
                             </div>

@@ -31,7 +31,7 @@
                             <div class='col-lg-10 mx-auto'>
                                 <div class="collapse" id="newEmployeeCollapse">
                                     <div class="card card-body">
-                                        @livewire('employees.create')
+
                                     </div>
                                 </div>
                             </div>
@@ -39,7 +39,6 @@
 
                         <hr class='my-2' />
 
-                        @livewire('employees.index')
 
                     </div>
                 </div>

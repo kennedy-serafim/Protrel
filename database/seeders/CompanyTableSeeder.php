@@ -27,12 +27,4 @@ class CompanyTableSeeder extends Seeder
             'phone'         => '84 000 444 1',
             'email'         => 'zaidaconstrucoes@gmail.com',
         ]);
-
-        Company::create([
-            'name'          => 'Furos e Obras Hidráulicas',
-            'nuit'          => '000 111 002',
-            'phone'         => '84 000 444 2',
-            'email'         => 'furos@gmail.com',
-        ]);
-    }
 }

@@ -60,6 +60,7 @@ return [
             'suffix' => env('SQS_SUFFIX'),
             'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
             'after_commit' => false,
+
         ],
 
         'redis' => [
@@ -69,6 +70,7 @@ return [
             'retry_after' => 90,
             'block_for' => null,
             'after_commit' => false,
+
         ],
 
     ],
