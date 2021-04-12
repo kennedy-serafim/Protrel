@@ -54,11 +54,15 @@
         data-turbolinks-track="reload" data-turbolinks-eval="false"></script>
 
     <script src="{{ asset('argon/js/argon.js') }}" data-turbolinks-eval="false" data-turbolinks-track="reload"></script>
-    <script src="{{ asset('js/app.js') }}" data-turbolinks-eval="false"></script>
-
+    <script src="{{ asset('js/app.js') }}" data-turbolinks-eval="false" data-turbolinks-track="reload"></script>
+    <script src="{{ asset('assets/vendor/aos/aos.js') }}" data-turbolinks-eval="false" data-turbolinks-track="reload"></script>
+    <script src="{{ asset('assets/vendor/owl.carousel/owl.carousel.min.js') }}" data-turbolinks-eval="false" data-turbolinks-track="reload"></script>
+    
     {{-- <script src="{{ asset('assets/vendor/summernote-0.8.18/summernote-bs4.min.js') }}"></script> --}}
     <script src="{{ asset('assets/vendor/summernote-0.8.18/summernote-lite.min.js') }}"
         data-turbolinks-track="reload"></script>
+    <script src="{{ asset('assets/vendor/jquery-sticky/jquery.sticky.js') }}" data-turbolinks-track="reload"></script>
+
     <script src="{{ asset('assets/js/main.js') }}" data-turbolinks-track="reload"></script>
     <script src="{{ asset('assets/vendor/jquery-mask/jquery.mask.js') }}" data-turbolinks-track="reload">
     </script>
