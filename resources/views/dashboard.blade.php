@@ -4,30 +4,18 @@
 ])
 
 @section('content')
-@include('layouts.headers.cards')
+    <div class="header pb-8 pt-5 pt-md-8 secondary-gradient-color">
+        <!-- Mask -->
+        <span class="mask bg-gradient-default opacity-3"></span>
 
-{{-- --}}
-<div class="container-fluid mt--7">
-    <div class="row">
-        <div class="col-xl-8 mb-5 mb-xl-0">
-
-        </div>
-
-        <div class="col-xl-4">
-
-        </div>
-    </div>
-
-    <div class="row mt-5">
-        <div class="col-xl-8 mb-5 mb-xl-0">
-
-        </div>
-
-        <div class="col-xl-4">
-
+        <div class="container-fluid">
+            <div class="header-body">
+                @role('Administrador')
+                @include('pages.administrators.card')
+                @endrole
+            </div>
         </div>
     </div>
 
-    @include('layouts.footers.auth')
-</div>
+
 @endsection

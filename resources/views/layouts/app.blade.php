@@ -12,19 +12,36 @@
     <!-- Favicon -->
     <link href="{{ asset('argon/img/brand/favicon.png') }}" rel="icon" type="image/png">
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" data-turbolinks-eval="true" data-turbolinks-track="true">
 
+    {{-- Scripts --}}
+    <script src="{{ asset('argon/vendor/jquery/dist/jquery.min.js') }}" data-turbolinks-eval="true" data-turbolinks-track="true"></script>
+    <script src="{{ asset('argon/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}" data-turbolinks-eval="true" data-turbolinks-track="true">
+    </script>
+    <script src="{{ asset('js/app.js') }}" data-turbolinks-eval="true" data-turbolinks-track="true" data-turbolinks-eval="true"></script>
+
+    <script src="{{ asset('assets/vendor/jquery-sticky/jquery.sticky.js') }}" data-turbolinks-eval="true" data-turbolinks-track="true"></script>
+    <script src="{{ asset('assets/vendor/owl.carousel/owl.carousel.min.js') }}" data-turbolinks-eval="true" data-turbolinks-track="true">
+    </script>
+    <script src="{{ asset('assets/vendor/aos/aos.js') }}" data-turbolinks-eval="true" data-turbolinks-track="true"></script>
+    <script src="{{ asset('assets/vendor/jquery-mask/jquery.mask.js') }}" data-turbolinks-eval="true" data-turbolinks-track="true"> </script>
+
+    <script src="{{ asset('assets/js/main.js') }}" data-turbolinks-eval="true" data-turbolinks-track="true"></script>
+    <script src="{{ asset('js/custom.js') }}" data-turbolinks-eval="true" data-turbolinks-track="true"></script>
+    <script src="{{ asset('argon/js/argon.js?v=1.0.0') }}" data-turbolinks-eval="true" data-turbolinks-track="true"></script>
+
+    @stack('js')
     <!-- Icons -->
-    <link href="{{ asset('argon/vendor/nucleo/css/nucleo.css') }}" rel="stylesheet">
-    <link href="{{ asset('argon/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/icofont/icofont.min.css') }}" rel="stylesheet">
-    
-    <link type="text/css" href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet">
-    <link type="text/css" href="{{ asset('assets/vendor/owl.carousel/assets/owl.carousel.min.css') }}">
-   
-    <link type="text/css" href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link type="text/css" href="{{ asset('css/custom.css') }}" rel="stylesheet">
-    <link type="text/css" href="{{ asset('argon/css/argon.css?v=1.0.0') }}" rel="stylesheet">
+    <link href="{{ asset('argon/vendor/nucleo/css/nucleo.css') }}" rel="stylesheet" data-turbolinks-eval="true" data-turbolinks-track="true">
+    <link href="{{ asset('argon/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet" data-turbolinks-eval="true" data-turbolinks-track="true">
+    <link href="{{ asset('assets/vendor/icofont/icofont.min.css') }}" rel="stylesheet" data-turbolinks-eval="true" data-turbolinks-track="true">
+
+    <link type="text/css" href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet" data-turbolinks-eval="true" data-turbolinks-track="true">
+    <link type="text/css" href="{{ asset('assets/vendor/owl.carousel/assets/owl.carousel.min.css') }}" data-turbolinks-eval="true" data-turbolinks-track="true">
+
+    <link type="text/css" href="{{ asset('css/style.css') }}" rel="stylesheet" data-turbolinks-eval="true" data-turbolinks-track="true">
+    <link type="text/css" href="{{ asset('css/custom.css') }}" rel="stylesheet" data-turbolinks-eval="true" data-turbolinks-track="true">
+    <link type="text/css" href="{{ asset('argon/css/argon.css?v=1.0.0') }}" rel="stylesheet" data-turbolinks-eval="true" data-turbolinks-track="true">
 
 </head>
 
@@ -43,22 +60,8 @@
 
     @guest()
         @include('layouts.footers.guest')
-    @endguest 
+    @endguest
 
-    <script src="{{ asset('argon/vendor/jquery/dist/jquery.min.js') }}"></script>
-    <script src="{{ asset('argon/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-    {{-- <script src="{{ asset('js/app.js') }}" ></script> --}}
-    
-    <script src="{{ asset('assets/vendor/jquery-sticky/jquery.sticky.js') }}" ></script>
-    <script src="{{ asset('assets/vendor/owl.carousel/owl.carousel.min.js') }}" data-turbolinks-eval="false" data-turbolinks-track="reload"></script>
-    <script src="{{ asset('assets/vendor/aos/aos.js') }}" ></script>
-    <script src="{{ asset('assets/vendor/jquery-mask/jquery.mask.js') }}">    </script>
-
-    <script src="{{ asset('assets/js/main.js') }}" ></script>
-    <script src="{{ asset('js/custom.js') }}" ></script>
-    <script src="{{ asset('argon/js/argon.js?v=1.0.0') }}"></script>
-
-    @stack('js')
 
 </body>
 

@@ -4,9 +4,6 @@
 
     <div class="container-fluid">
         <div class="header-body">
-            @role('Administrador')
-            @include('pages.administrators.card')
-            @endrole
         </div>
     </div>
 </div>
