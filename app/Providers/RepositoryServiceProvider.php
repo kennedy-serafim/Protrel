@@ -32,6 +32,15 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(\App\Repositories\WarrantyRepository::class, \App\Repositories\WarrantyRepositoryEloquent::class);
         $this->app->bind(\App\Repositories\ProductTagRepository::class, \App\Repositories\ProductTagRepositoryEloquent::class);
         $this->app->bind(\App\Repositories\SupplierRepository::class, \App\Repositories\SupplierRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\UserRepository::class, \App\Repositories\UserRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\CompanyRepository::class, \App\Repositories\CompanyRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\ContestRepository::class, \App\Repositories\ContestRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\EmployeeRepository::class, \App\Repositories\EmployeeRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\FinancialProposalRepository::class, \App\Repositories\FinancialProposalRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\InsuranceRepository::class, \App\Repositories\InsuranceRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\ProductTagRepository::class, \App\Repositories\ProductTagRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\SupplierRepository::class, \App\Repositories\SupplierRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\WarrantyRepository::class, \App\Repositories\WarrantyRepositoryEloquent::class);
         //:end-bindings:
     }
 }
