@@ -1846,6 +1846,38 @@ var Turbolinks = __webpack_require__(/*! turbolinks */ "./node_modules/turbolink
 
 Turbolinks.start();
 
+__webpack_require__(/*! ./app/companies */ "./resources/js/app/companies.js");
+
+/***/ }),
+
+/***/ "./resources/js/app/companies.js":
+/*!***************************************!*\
+  !*** ./resources/js/app/companies.js ***!
+  \***************************************/
+/***/ (() => {
+
+$(document).on("turbolinks:load", function () {
+  $.ajaxSetup({
+    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+  });
+  $("#companiesFormBtn").on("click", function (e) {
+    e.preventDefault();
+    console.log($("#companiesForm").serialize());
+    $.ajax({
+      data: $("#companiesForm").serialize(),
+      url: "/companies",
+      type: "POST",
+      dataType: "json",
+      success: function success(data) {
+        console.log(data);
+      },
+      error: function error(data) {
+        console.log(data);
+      }
+    });
+  });
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

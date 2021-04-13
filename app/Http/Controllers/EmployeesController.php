@@ -58,7 +58,10 @@ class EmployeesController extends Controller
             ]);
         }
 
-        return view('employees.index', compact('employees'));
+        return view('pages.employees.index', [
+            'employees'     => $employees,
+            'total'         => count($employees)
+        ]);
     }
 
     /**

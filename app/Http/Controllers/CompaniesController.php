@@ -11,6 +11,7 @@ use App\Http\Requests\CompanyCreateRequest;
 use App\Http\Requests\CompanyUpdateRequest;
 use App\Repositories\CompanyRepository;
 use App\Validators\CompanyValidator;
+use Prettus\Repository\Criteria\RequestCriteria;
 
 /**
  * Class CompaniesController.
@@ -19,14 +20,7 @@ use App\Validators\CompanyValidator;
  */
 class CompaniesController extends Controller
 {
-    /**
-     * @var CompanyRepository
-     */
     protected $repository;
-
-    /**
-     * @var CompanyValidator
-     */
     protected $validator;
 
     /**
@@ -39,6 +33,10 @@ class CompaniesController extends Controller
     {
         $this->repository = $repository;
         $this->validator  = $validator;
+        $this->middleware('role:Administrador')->except([
+            'index',
+            'show'
+        ]);
     }
 
     /**
@@ -48,8 +46,8 @@ class CompaniesController extends Controller
      */
     public function index()
     {
-        $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $companies = $this->repository->all();
+        $this->repository->pushCriteria(app(RequestCriteria::class));
+        $companies = $this->repository->paginate(5);
 
         if (request()->wantsJson()) {
 
@@ -58,7 +56,18 @@ class CompaniesController extends Controller
             ]);
         }
 
-        return view('companies.index', compact('companies'));
+        return view('pages.companies.index', [
+            'companies'     => $companies,
+            'total'         => count($companies)
+        ]);
+    }
+
+    /**
+     * Show view to create resource
+     */
+    public function create()
+    {
+        return view('pages.companies.create');
     }
 
     /**
@@ -85,6 +94,7 @@ class CompaniesController extends Controller
 
             if ($request->wantsJson()) {
 
+                redirect()->back()->with('message', $response['message']);
                 return response()->json($response);
             }
 

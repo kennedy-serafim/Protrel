@@ -1,6 +1,8 @@
 <div>
     {{-- Close your eyes. Count to one. That is how long forever feels. --}}
     <h6 class="heading-small text-muted">Mecanismo de Pesquisa</h6>
+    
+
     <div class="mt-3">
         <div class="row">
             <div class=" col-lg-7 col-md-6">
@@ -11,7 +13,7 @@
                             <span class="input-group-text"><i class="fas fa-search"></i></span>
                         </div>
                         <input class="form-control form-control-alternative" placeholder="Nome da companhia..."
-                            type="text" wire:model.debounce="name">
+                            type="text">
                     </div>
                 </div>
             </div>
@@ -40,17 +42,17 @@
             </h3>
 
             <div class="table-responsive">
-                <table class="table align-items-center table-flush">
-                    <thead class="thead-light">
+                <table class="table table-hover">
+                    <thead class="thead-dark">
                         <tr>
-                            <th scope="col">Nome</th>
-                            <th scope="col">NUIT</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Telefone</th>
-                            <th scope="col">Responsável</th>
-                            <th scope="col">Documentos</th>
-                            <th scope="col">Funcionários</th>
-                            <th scope="col">Opções</th>
+                            <th scope="col" class="text-white">Nome</th>
+                            <th scope="col" class="text-white">NUIT</th>
+                            <th scope="col" class="text-white">Email</th>
+                            <th scope="col" class="text-white">Telefone</th>
+                            <th scope="col" class="text-white">Responsável</th>
+                            <th scope="col" class="text-white">Documentos</th>
+                            <th scope="col" class="text-white">Funcionários</th>
+                            <th scope="col" class="text-white">Opções</th>
                         </tr>
                     </thead>
 
@@ -78,15 +80,15 @@
 
                                 </td>
                                 <td class="d-flex justify-content-between">
-                                    <a class='btn-sm tooltips' data-toggle="tooltip" data-placement="right"
+                                    <a class='btn-sm tooltips text-warning' data-toggle="tooltip" data-placement="right"
                                         title="Atualizar dados " style='cursor: pointer;'
-                                        wire:click="action('atualizar', {{ $company->id }})">
+                                        href="{{ route('companies.edit', [$company->id]) }}">
                                         <i class="fas fa-pencil-alt"></i>
                                     </a>
 
-                                    <a class='btn-sm tooltips' data-toggle="tooltip" data-placement="bottom"
+                                    <a class='btn-sm tooltips text-danger' data-toggle="tooltip" data-placement="bottom"
                                         title="Apagar registo" style='cursor: pointer;'
-                                        wire:click='action("excluir",{{ $company->id }})'>
+                                        href="{{ route('companies.destroy', [$company->id]) }}">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>

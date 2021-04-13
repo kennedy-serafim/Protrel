@@ -17,5 +17,10 @@
         </div>
     </div>
 
+    <div class="container-fluid">
+        @include('layouts.footers.auth')
+    </div>
+
+
 
 @endsection
