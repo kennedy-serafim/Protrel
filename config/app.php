@@ -169,7 +169,7 @@ return [
 
          Spatie\Permission\PermissionServiceProvider::class,
          RealRashid\SweetAlert\SweetAlertServiceProvider::class,
-
+         Prettus\Repository\Providers\RepositoryServiceProvider::class,
 
         /*
          * Application Service Providers...
