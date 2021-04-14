@@ -17,23 +17,30 @@
                             </h3>
 
                             @role('Administrador')
-                            <a href="{{ route('companies.index') }}" class="btn btn-sm btn-outline-primary">Lista</a>
+                            <a href="{{ route('companies.index') }}" class="btn btn-sm btn-outline-primary">
+                                <i class="icofont-justify-all"></i>
+                                Lista
+                            </a>
                             @endrole
                         </div>
                     </div>
 
                     <div class="card-body">
-                        <h6 class="heading-small text-muted">
-                            <button class="btn btn-primary btn-sm ml-2 mb-2" type="button" disabled>
-                                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-                                <span class="sr-only">Loading...</span>
-                              </button>
-                          Cadastrar Companhias
-                        </h6>
+                        <div class="d-flex align-items-center">
+                            <strong class="heading-small text-muted">Cadastrar Companhias</strong>
+                            <div class="spinner-border ml-auto d-none loader" role="status" aria-hidden="true"></div>
+                        </div>
+
+                        <div class="alert alert-danger alert-dismissible fade show d-none" role="alert" id="alertCompanies">
+                            <span class="message"></span>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
 
                         <hr class='mt-1 mb-3' />
 
-                        <form action="{{ route('companies.store') }}" method="POST">
+                        <form action="{{ route('companies.store') }}" method="POST" id="companiesFormCreate">
                             @csrf
                             <div class="row">
                                 <div class="col-lg-6">
@@ -46,7 +53,8 @@
                                                 </span>
                                             </div>
                                             <input class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}"
-                                                name='name' value="{{old('name')}}" id='companyName' placeholder="Nome da companhia" type="text">
+                                                name='name' value="{{ old('name') }}" id='companyName'
+                                                placeholder="Nome da companhia" type="text">
                                         </div>
 
                                         @if ($errors->has('name'))
@@ -68,7 +76,8 @@
                                             </div>
                                             <input
                                                 class="form-control f-nuit {{ $errors->has('nuit') ? ' is-invalid' : '' }}"
-                                                name='nuit' value="{{old('nuit')}}" id='companyNuit' placeholder="Nuit da companhia" type="text">
+                                                name='nuit' value="{{ old('nuit') }}" id='companyNuit'
+                                                placeholder="Nuit da companhia" type="text">
                                         </div>
 
                                         @if ($errors->has('nuit'))
@@ -92,7 +101,8 @@
                                                 </span>
                                             </div>
                                             <input class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                                name='email' value="{{old('email')}}" id='companyEmail' placeholder="E-mail..." type="email">
+                                                name='email' value="{{ old('email') }}" id='companyEmail'
+                                                placeholder="E-mail..." type="email">
                                         </div>
 
                                         @if ($errors->has('email'))
@@ -115,7 +125,8 @@
                                             </div>
                                             <input
                                                 class="form-control f-phone {{ $errors->has('phone') ? ' is-invalid' : '' }}"
-                                                name='phone' value="{{old('phone')}}" id='companyPhone' placeholder="Telefone..." type="text">
+                                                name='phone' value="{{ old('phone') }}" id='companyPhone'
+                                                placeholder="Telefone..." type="text">
                                         </div>
 
                                         @if ($errors->has('phone'))
@@ -137,8 +148,9 @@
                                                     <i class="icofont-email"></i>
                                                 </span>
                                             </div>
-                                            <input class="form-control" name='manager' value="{{old('name')}}" id='companyManager'
-                                                placeholder="Responsável..." type="text" list="companyManagers">
+                                            <input class="form-control" name='manager' value="{{ old('name') }}"
+                                                id='companyManager' placeholder="Responsável..." type="text"
+                                                list="companyManagers">
                                         </div>
 
                                         <datalist id="companyManagers">
@@ -154,8 +166,8 @@
                                     <label for="companyAddress" class="form-control-label">Endereço da Empresa</label>
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <textarea name="address" value="{{old('address')}}" id="companyAddress" cols="30" rows="3"
-                                                class="form-control"></textarea>
+                                            <textarea name="address" value="{{ old('address') }}" id="companyAddress"
+                                                cols="30" rows="3" class="form-control"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -165,15 +177,15 @@
                             {{-- Buttons --}}
                             <div class='row justify-content-center'>
                                 <div class="form-group mr-2">
-                                    <button type="submit" id="comp aniesFormBtn" class="btn primary-color text-white">
+                                    <button type="submit" id="companiesFormBtn" class="btn primary-color text-white">
                                         <i class="far fa-check-circle"></i>
                                         Cadastrar
                                     </button>
+
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="button" id="btnCancelCompanyCollapse" class="btn secondary-color"
-                                        wire:click='hideCollapse'>
+                                    <button type="button" id="companiesFormBtnCancel" class="btn secondary-color">
                                         <i class="far fa-times-circle"></i>
                                         Cancelar
                                     </button>

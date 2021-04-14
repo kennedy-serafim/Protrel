@@ -19,6 +19,7 @@
     <script src="{{ asset('argon/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}" data-turbolinks-eval="true" data-turbolinks-track="true">
     </script>
     <script src="{{ asset('argon/js/argon.js?v=1.0.0') }}" data-turbolinks-eval="true" data-turbolinks-track="true"></script>
+    <script src="{{ asset('assets/vendor/sweetalert2/dist/sweetalert2.all.min.js') }}" data-turbolinks-eval="true" data-turbolinks-track="true"></script>
 
     <script src="{{ asset('js/app.js') }}" data-turbolinks-eval="true" data-turbolinks-track="true" data-turbolinks-eval="true"></script>
 
@@ -37,6 +38,8 @@
     <link href="{{ asset('argon/vendor/nucleo/css/nucleo.css') }}" rel="stylesheet" data-turbolinks-eval="true" data-turbolinks-track="true">
     <link href="{{ asset('argon/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet" data-turbolinks-eval="true" data-turbolinks-track="true">
     <link href="{{ asset('assets/vendor/icofont/icofont.min.css') }}" rel="stylesheet" data-turbolinks-eval="true" data-turbolinks-track="true">
+    <link href="{{ asset('assets/vendor/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet" data-turbolinks-eval="true" data-turbolinks-track="true">
+
 
     <link type="text/css" href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet" data-turbolinks-eval="true" data-turbolinks-track="true">
     <link type="text/css" href="{{ asset('assets/vendor/owl.carousel/assets/owl.carousel.min.css') }}" data-turbolinks-eval="true" data-turbolinks-track="true">
