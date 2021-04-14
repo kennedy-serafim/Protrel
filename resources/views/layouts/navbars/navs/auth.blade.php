@@ -16,23 +16,15 @@
         </a>
          <!-- User -->
          <ul class="navbar-nav align-items-center d-none d-md-flex">
-            <li class="nav-item">
-                <a class="nav-link pr-0">
-                    <i class="fas fa-bell mr-3"></i>
-                </a>
-            </li>
-
             <li class="nav-item dropdown" data-turbolinks="false">
                 <a class="nav-link px-0" href="" data-turbolinks="false" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     <div class="media align-items-center">
                         <span class="avatar avatar-sm rounded-circle">
                             @if(config('app.env') != 'local')
-<img
-                                src="https://avatars.abstractapi.com/v1/?api_key=8f4d247c8af345aab346b1ec15591377&name={{auth()->user()->employee->firstname.' '.auth()->user()->employee->lastname}}&background_color=18a5e7&font_color=ffffff"
-                            />
+                                <img src="https://avatars.abstractapi.com/v1/?api_key=8f4d247c8af345aab346b1ec15591377&name={{auth()->user()->employee->firstname.' '.auth()->user()->employee->lastname}}&background_color=18a5e7&font_color=ffffff"
+                                />
                             @endif
-
                         </span>
                         <div class="media-body ml-2 d-none d-lg-block">
                             <span class="mb-0 text-sm font-weight-bold">

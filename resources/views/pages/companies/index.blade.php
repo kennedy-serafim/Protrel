@@ -17,7 +17,10 @@
                             </h3>
 
                             @role('Administrador')
-                            <a href="{{ route('companies.create') }}" class="btn btn-sm btn-outline-primary">Registar</a>
+                            <a href="{{ route('companies.create') }}" class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-plus-circle"></i>
+                                Registar
+                            </a>
                             @endrole
                         </div>
                     </div>

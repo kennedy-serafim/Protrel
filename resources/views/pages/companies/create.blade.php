@@ -23,16 +23,13 @@
                     </div>
 
                     <div class="card-body">
-                        <h6 class="heading-small text-muted">Cadastrar Companhias</h6>
-
-                        @if ($errors)
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $errors->first() }}
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        @endif
+                        <h6 class="heading-small text-muted">
+                            <button class="btn btn-primary btn-sm ml-2 mb-2" type="button" disabled>
+                                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                                <span class="sr-only">Loading...</span>
+                              </button>
+                          Cadastrar Companhias
+                        </h6>
 
                         <hr class='mt-1 mb-3' />
 
@@ -49,7 +46,7 @@
                                                 </span>
                                             </div>
                                             <input class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}"
-                                                name='name' id='companyName' placeholder="Nome da companhia" type="text">
+                                                name='name' value="{{old('name')}}" id='companyName' placeholder="Nome da companhia" type="text">
                                         </div>
 
                                         @if ($errors->has('name'))
@@ -71,7 +68,7 @@
                                             </div>
                                             <input
                                                 class="form-control f-nuit {{ $errors->has('nuit') ? ' is-invalid' : '' }}"
-                                                name='nuit' id='companyNuit' placeholder="Nuit da companhia" type="text">
+                                                name='nuit' value="{{old('nuit')}}" id='companyNuit' placeholder="Nuit da companhia" type="text">
                                         </div>
 
                                         @if ($errors->has('nuit'))
@@ -95,7 +92,7 @@
                                                 </span>
                                             </div>
                                             <input class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                                name='email' id='companyEmail' placeholder="E-mail..." type="email">
+                                                name='email' value="{{old('email')}}" id='companyEmail' placeholder="E-mail..." type="email">
                                         </div>
 
                                         @if ($errors->has('email'))
@@ -118,7 +115,7 @@
                                             </div>
                                             <input
                                                 class="form-control f-phone {{ $errors->has('phone') ? ' is-invalid' : '' }}"
-                                                name='phone' id='companyPhone' placeholder="Telefone..." type="text">
+                                                name='phone' value="{{old('phone')}}" id='companyPhone' placeholder="Telefone..." type="text">
                                         </div>
 
                                         @if ($errors->has('phone'))
@@ -140,7 +137,7 @@
                                                     <i class="icofont-email"></i>
                                                 </span>
                                             </div>
-                                            <input class="form-control" name='manager' id='companyManager'
+                                            <input class="form-control" name='manager' value="{{old('name')}}" id='companyManager'
                                                 placeholder="Responsável..." type="text" list="companyManagers">
                                         </div>
 
@@ -157,7 +154,7 @@
                                     <label for="companyAddress" class="form-control-label">Endereço da Empresa</label>
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <textarea name="address" id="companyAddress" cols="30" rows="3"
+                                            <textarea name="address" value="{{old('address')}}" id="companyAddress" cols="30" rows="3"
                                                 class="form-control"></textarea>
                                         </div>
                                     </div>

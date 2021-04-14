@@ -12,6 +12,7 @@ use App\Http\Requests\CompanyUpdateRequest;
 use App\Repositories\CompanyRepository;
 use App\Validators\CompanyValidator;
 use Prettus\Repository\Criteria\RequestCriteria;
+use RealRashid\SweetAlert\Facades\Alert;
 
 /**
  * Class CompaniesController.
@@ -58,7 +59,7 @@ class CompaniesController extends Controller
 
         return view('pages.companies.index', [
             'companies'     => $companies,
-            'total'         => count($companies)
+            'total'         => $this->repository->count()
         ]);
     }
 
@@ -99,6 +100,8 @@ class CompaniesController extends Controller
             }
 
             return redirect()->back()->with('message', $response['message']);
+
+            // return redirect()->back()->with('message', $response['message']);
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([

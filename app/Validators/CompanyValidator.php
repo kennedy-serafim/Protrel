@@ -26,4 +26,9 @@ class CompanyValidator extends LaravelValidator
         ],
         ValidatorInterface::RULE_UPDATE => [],
     ];
+
+    protected $messages = [
+        'nuit.min'      => 'O NUIT deve ter pelo menos 9 caracteres',
+        'phone.min'     => 'O Telefone deve ter pelo menos 9 caracteres'
+    ];
 }

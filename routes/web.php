@@ -20,7 +20,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 
 	Route::resource('/companies', CompaniesController::class);
-	// Route::resource('/companies', CompaniesController::class);
 	Route::resource('/employees', EmployeesController::class);
 
 });

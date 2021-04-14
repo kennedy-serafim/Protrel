@@ -18,6 +18,8 @@
     <script src="{{ asset('argon/vendor/jquery/dist/jquery.min.js') }}" data-turbolinks-eval="true" data-turbolinks-track="true"></script>
     <script src="{{ asset('argon/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}" data-turbolinks-eval="true" data-turbolinks-track="true">
     </script>
+    <script src="{{ asset('argon/js/argon.js?v=1.0.0') }}" data-turbolinks-eval="true" data-turbolinks-track="true"></script>
+
     <script src="{{ asset('js/app.js') }}" data-turbolinks-eval="true" data-turbolinks-track="true" data-turbolinks-eval="true"></script>
 
     <script src="{{ asset('assets/vendor/jquery-sticky/jquery.sticky.js') }}" data-turbolinks-eval="true" data-turbolinks-track="true"></script>
@@ -28,9 +30,9 @@
 
     <script src="{{ asset('assets/js/main.js') }}" data-turbolinks-eval="true" data-turbolinks-track="true"></script>
     <script src="{{ asset('js/custom.js') }}" data-turbolinks-eval="true" data-turbolinks-track="true"></script>
-    <script src="{{ asset('argon/js/argon.js?v=1.0.0') }}" data-turbolinks-eval="true" data-turbolinks-track="true"></script>
 
     @stack('js')
+    
     <!-- Icons -->
     <link href="{{ asset('argon/vendor/nucleo/css/nucleo.css') }}" rel="stylesheet" data-turbolinks-eval="true" data-turbolinks-track="true">
     <link href="{{ asset('argon/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet" data-turbolinks-eval="true" data-turbolinks-track="true">
