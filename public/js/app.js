@@ -1897,7 +1897,7 @@ $(document).on("turbolinks:load", function () {
         Swal.fire({
           title: "Algum erro ocorreu.",
           toast: false,
-          icon: 'warning',
+          icon: "warning",
           timer: 5000,
           timerProgressBar: false,
           position: "center"
@@ -1927,6 +1927,30 @@ $(document).on("turbolinks:load", function () {
           position: "center"
         });
       }
+    });
+  });
+  $(".deleteCompanyButton").on("click", function (event) {
+    // event.preventDefault();
+    var href = $(this).attr("data-attr");
+    $.ajax({
+      url: href,
+      beforeSend: function beforeSend() {
+        $("#loader").show();
+      },
+      // return the result
+      success: function success(result) {
+        $("#deleteCompanyModal").modal("show");
+        $("#companySmallBody").html(result).show();
+      },
+      complete: function complete() {
+        $("#loader").hide();
+      },
+      error: function error(jqXHR, testStatus, _error) {
+        console.log(_error);
+        alert("Page " + href + " cannot open. Error:" + _error);
+        $("#loader").hide();
+      },
+      timeout: 8000
     });
   });
 });

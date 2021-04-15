@@ -27,4 +27,5 @@ class CompanyTableSeeder extends Seeder
             'phone'         => '84 000 444 1',
             'email'         => 'zaidaconstrucoes@gmail.com',
         ]);
+    }
 }

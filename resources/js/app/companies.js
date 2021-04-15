@@ -40,7 +40,7 @@ $(document).on("turbolinks:load", () => {
                 Swal.fire({
                     title: "Algum erro ocorreu.",
                     toast: false,
-                    icon: 'warning',
+                    icon: "warning",
                     timer: 5000,
                     timerProgressBar: false,
                     position: "center"
@@ -58,7 +58,7 @@ $(document).on("turbolinks:load", () => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Sim",
-            cancelButtonText: "Não",
+            cancelButtonText: "Não"
         }).then(result => {
             if (result.isConfirmed) {
                 $("#companiesFormCreate").trigger("reset");
@@ -71,6 +71,33 @@ $(document).on("turbolinks:load", () => {
                     position: "center"
                 });
             }
+        });
+    });
+
+    $(".deleteCompanyButton").on("click", function(event) {
+        // event.preventDefault();
+        let href = $(this).attr("data-attr");
+        $.ajax({
+            url: href,
+            beforeSend: function() {
+                $("#loader").show();
+            },
+            // return the result
+            success: function(result) {
+                $("#deleteCompanyModal").modal("show");
+                $("#companySmallBody")
+                    .html(result)
+                    .show();
+            },
+            complete: function() {
+                $("#loader").hide();
+            },
+            error: function(jqXHR, testStatus, error) {
+                console.log(error);
+                alert("Page " + href + " cannot open. Error:" + error);
+                $("#loader").hide();
+            },
+            timeout: 8000
         });
     });
 });

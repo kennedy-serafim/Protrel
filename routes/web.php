@@ -7,7 +7,7 @@ use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/',[HomeController::class,'welcome']);
+Route::get('/', [HomeController::class, 'welcome']);
 
 Auth::routes();
 
@@ -21,5 +21,5 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::resource('/companies', CompaniesController::class);
 	Route::resource('/employees', EmployeesController::class);
-
+	Route::get('/companies/delete/{id}', [CompaniesController::class, 'delete'])->name('companies.delete');
 });

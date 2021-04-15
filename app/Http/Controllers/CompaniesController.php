@@ -48,18 +48,21 @@ class CompaniesController extends Controller
     public function index()
     {
         $this->repository->pushCriteria(app(RequestCriteria::class));
-        $companies = $this->repository->paginate(5);
+        $companies     = $this->repository->paginate(5);
+        $companyStatus = ['Activo', 'Inactivo'];
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $companies,
+                'data' => [$companies, $companyStatus],
             ]);
         }
 
         return view('pages.companies.index', [
-            'companies'     => $companies,
-            'total'         => $this->repository->count()
+            'companies'         => $companies,
+            'total'             => $this->repository->count(),
+            'companyStatus'     => $companyStatus,
+
         ]);
     }
 
@@ -132,7 +135,7 @@ class CompaniesController extends Controller
             ]);
         }
 
-        return view('companies.show', compact('company'));
+        return view('pages.companies.show', compact('company'));
     }
 
     /**
@@ -202,16 +205,45 @@ class CompaniesController extends Controller
      */
     public function destroy($id)
     {
-        $deleted = $this->repository->delete($id);
+        $company = $this->repository->find($id);
+        if ($company->id == auth()->user()->employee->company->id) {
+            return redirect()->back()->with([
+                'message'   => 'Não podes excluir o registo da companhia na qual fazes parte.',
+                'type'      => 'warning'
+            ]);
+        } else if (count($company->employees) > 0) {
+            return redirect()->back()->with([
+                'message'   => 'A companhia não pode ser deletada porque existem funcionários cadastrados.',
+                'type'      => 'danger'
+            ]);
+        } else {
+            $deleted = $this->repository->delete($id);
+            if (request()->wantsJson()) {
+
+                return response()->json([
+                    'message' => 'Companhia Excluída com Sucesso.',
+                    'deleted' => $deleted,
+                ]);
+            }
+
+            return redirect()->back()->with([
+                'message'   => 'Companhia Excluída com Sucesso.',
+                'type'      => 'success'
+            ]);
+        }
+    }
+
+    public function delete($id)
+    {
+        $company = $this->repository->find($id);
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'message' => 'Company deleted.',
-                'deleted' => $deleted,
+                'data' => $company,
             ]);
         }
 
-        return redirect()->back()->with('message', 'Company deleted.');
+        return view('pages.companies.delete', compact('company'));
     }
 }

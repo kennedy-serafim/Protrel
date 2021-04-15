@@ -1,7 +1,15 @@
 <div>
+    @if (Session::has('message'))
+    @include('layouts.custom.alert',[
+        'message' => Session::get('message'),
+        'alertType'=>Session::get('type')
+        ])
+    @endif
+    
+
     {{-- Close your eyes. Count to one. That is how long forever feels. --}}
     <h6 class="heading-small text-muted">Mecanismo de Pesquisa</h6>
-    
+
 
     <div class="mt-3">
         <div class="row">
@@ -23,9 +31,9 @@
                 <div class="form-group">
                     <select class="custom-select  input-group-alternative" wire:model='status'>
                         <option value="0" selected>Escolher um estado...</option>
-                        {{-- @foreach ($companyStatus as $status)
+                        @foreach ($companyStatus as $status)
                             <option value='{{ $status }}'>{{ $status }}</option>
-                        @endforeach --}}
+                        @endforeach
                     </select>
                 </div>
             </div>
@@ -86,10 +94,11 @@
                                         <i class="fas fa-pencil-alt"></i>
                                     </a>
 
-                                    <a class='btn-sm tooltips text-danger' data-toggle="tooltip" data-placement="bottom"
-                                        title="Apagar registo" style='cursor: pointer;'
-                                        href="{{ route('companies.destroy', [$company->id]) }}">
-                                        <i class="fas fa-trash"></i>
+                                    <a class="btn-sm tooltips text-danger deleteCompanyButton" data-toggle="modal"
+                                        data-target="#deleteCompanyModal"
+                                        data-attr="{{ route('companies.delete', $company->id) }}"
+                                        title="Apagar registo" style='cursor: pointer;'>
+                                        <i class="fas fa-trash text-danger  fa-lg"></i>
                                     </a>
                                 </td>
                             </tr>
@@ -110,44 +119,28 @@
         @endif
     </div>
 
-
-    <div class="modal fade" tabindex="-1" id='deleteCompanyModal'>
+    <div class="modal fade" id="deleteCompanyModal" tabindex="-1" role="dialog"
+        aria-labelledby="deleteCompanyModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
+
                 <div class="modal-header">
                     <h5 class="modal-title">Confirmar Operação</h5>
+
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <p>Pretende excluir os registos da Companhia <strong>name</strong>, incluindo os
-                        funcionários?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-dark" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn secondary-color" wire:click='destroy'>
-                        <i class="fas fa-trash"></i>
-                        Excluir
-                    </button>
+
+                <div class="spinner-border mx-auto " id="loader" role="status" aria-hidden="true"></div>
+
+                <div id="companySmallBody">
+                    <div>
+                        <!-- the result to be displayed apply here -->
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" tabindex="-1" id='updateCompanyModal'>
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Atualizar Dados da Companhia <strong>name</strong></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Coming Soon
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
