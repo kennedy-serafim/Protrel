@@ -24,7 +24,12 @@ class CompanyValidator extends LaravelValidator
             'phone' => 'required|min:12|unique:companies',
             'email' => 'required|email|unique:companies',
         ],
-        ValidatorInterface::RULE_UPDATE => [],
+        ValidatorInterface::RULE_UPDATE => [
+            'name'  => 'required|min:3|max:30',
+            'nuit'  => 'required|min:11',
+            'phone' => 'required|min:12',
+            'email' => 'required|email'
+        ],
     ];
 
     protected $messages = [

@@ -3,6 +3,7 @@
 use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SuppliersController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -21,5 +22,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::resource('/companies', CompaniesController::class);
 	Route::resource('/employees', EmployeesController::class);
+	Route::resource('/suppliers', SuppliersController::class);
 	Route::get('/companies/delete/{id}', [CompaniesController::class, 'delete'])->name('companies.delete');
+	Route::get('/suppliers/delete/{id}', [SuppliersController::class, 'delete'])->name('suppliers.delete');
 });

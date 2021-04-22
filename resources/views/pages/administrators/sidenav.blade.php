@@ -24,8 +24,8 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link {{ $elementActive == 'Contest' ? 'nav-active text-white' : '' }}"
-            href="javascript:void(0)">
+        <a class="nav-link {{ $elementActive == 'Suppliers' ? 'nav-active text-white' : '' }}"
+            href="{{ route('suppliers.index') }}">
             <i class="fas fa-store"></i>
             Lojas Fornecedoras
         </a>

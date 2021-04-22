@@ -22,4 +22,9 @@ class ProductTag extends Model implements Transformable
     {
         return $this->belongsToMany(Supplier::class, 'product_tag_suppliers');
     }
+
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = strtoupper(trim($value));
+    }
 }

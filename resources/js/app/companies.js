@@ -27,7 +27,7 @@ $(document).on("turbolinks:load", () => {
                     Swal.fire({
                         title: "Companhia Cadastrada com Sucesso.",
                         toast: true,
-                        icon: "success",
+                        type: "success",
                         timer: 3000,
                         timerProgressBar: true,
                         position: "top-end"
@@ -40,7 +40,7 @@ $(document).on("turbolinks:load", () => {
                 Swal.fire({
                     title: "Algum erro ocorreu.",
                     toast: false,
-                    icon: "warning",
+                    type: "warning",
                     timer: 5000,
                     timerProgressBar: false,
                     position: "center"
@@ -53,7 +53,7 @@ $(document).on("turbolinks:load", () => {
         e.preventDefault();
         Swal.fire({
             title: "Cancelar a Operaçao?",
-            icon: "warning",
+            type: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
@@ -65,7 +65,7 @@ $(document).on("turbolinks:load", () => {
                 Swal.fire({
                     title: "Operação cancelada com sucesso.",
                     toast: true,
-                    icon: "success",
+                    type: "success",
                     timer: 3000,
                     timerProgressBar: true,
                     position: "center"
@@ -100,4 +100,58 @@ $(document).on("turbolinks:load", () => {
             timeout: 8000
         });
     });
+
+    $("#companiesFormBtnUpdate").on("click", function(e) {
+        e.preventDefault();
+        $(this).attr("disabled");
+        $("#alertCompanies").addClass("d-none");
+
+        $.ajax({
+            url: $("#companiesFormUpdate").attr("action"),
+            type: "POST",
+            data: $("#companiesFormUpdate").serialize(),
+            dataType: "json",
+            method: "PUT",
+            beforeSend: function() {
+                $("#loader").show();
+                $("#loader").removeClass("d-none");
+            },
+            success: function(data) {
+                if (data.error) {
+                    $.each(data.message, function(key, value) {
+                        $("#alertCompanies")
+                            .children("span")
+                            .text(value);
+                    });
+                    $("#alertCompanies").removeClass("d-none");
+                } else {
+                    $("#companiesFormUpdate").trigger("reset");
+                    Swal.fire({
+                        title: "Companhia Actualizada com Sucesso.",
+                        toast: true,
+                        type: "success",
+                        timer: 3000,
+                        timerProgressBar: true,
+                        position: "top-end"
+                    });
+                }
+                $(this).removeAttr("disabled");
+            },
+            complete: function() {
+                $("#loader").hide();
+                $("#loader").addClass("d-none");
+            },
+            error: function(data) {
+                Swal.fire({
+                    title: "Algum erro ocorreu.",
+                    toast: false,
+                    type: "warning",
+                    timer: 5000,
+                    timerProgressBar: false,
+                    position: "center"
+                });
+            }
+        });
+    });
+
 });

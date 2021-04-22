@@ -1,11 +1,11 @@
 <div>
     @if (Session::has('message'))
-    @include('layouts.custom.alert',[
+        @include('layouts.custom.alert',[
         'message' => Session::get('message'),
         'alertType'=>Session::get('type')
         ])
     @endif
-    
+
 
     {{-- Close your eyes. Count to one. That is how long forever feels. --}}
     <h6 class="heading-small text-muted">Mecanismo de Pesquisa</h6>
@@ -88,6 +88,13 @@
 
                                 </td>
                                 <td class="d-flex justify-content-between">
+                                    <a class='btn-sm tooltips' data-toggle="tooltip" data-placement="right"
+                                        title="Visualizar" style='cursor: pointer;'
+                                        href="{{ route('companies.show', [$company->id]) }}">
+                                        <i class="icofont-eye-alt"></i>
+                                    </a>
+
+                                    @role('Administrador')
                                     <a class='btn-sm tooltips text-warning' data-toggle="tooltip" data-placement="right"
                                         title="Atualizar dados " style='cursor: pointer;'
                                         href="{{ route('companies.edit', [$company->id]) }}">
@@ -100,6 +107,7 @@
                                         title="Apagar registo" style='cursor: pointer;'>
                                         <i class="fas fa-trash text-danger  fa-lg"></i>
                                     </a>
+                                    @endrole
                                 </td>
                             </tr>
                         @endforeach

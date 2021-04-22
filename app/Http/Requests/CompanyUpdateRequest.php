@@ -13,7 +13,11 @@ class CompanyUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        if (auth()->user()->roles->where('name', '=', 'Administrador')) {
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /**

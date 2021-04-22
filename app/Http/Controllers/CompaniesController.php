@@ -149,7 +149,7 @@ class CompaniesController extends Controller
     {
         $company = $this->repository->find($id);
 
-        return view('companies.edit', compact('company'));
+        return view('pages.companies.edit', compact('company'));
     }
 
     /**

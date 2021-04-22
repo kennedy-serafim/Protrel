@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
 use App\Http\Requests\SupplierCreateRequest;
 use App\Http\Requests\SupplierUpdateRequest;
+use App\Models\ProductTag;
+use App\Repositories\ProductTagRepository;
 use App\Repositories\SupplierRepository;
 use App\Validators\SupplierValidator;
+use Prettus\Repository\Criteria\RequestCriteria;
 
 /**
  * Class SuppliersController.
@@ -19,14 +19,8 @@ use App\Validators\SupplierValidator;
  */
 class SuppliersController extends Controller
 {
-    /**
-     * @var SupplierRepository
-     */
     protected $repository;
-
-    /**
-     * @var SupplierValidator
-     */
+    protected $productTagRepository;
     protected $validator;
 
     /**
@@ -35,10 +29,15 @@ class SuppliersController extends Controller
      * @param SupplierRepository $repository
      * @param SupplierValidator $validator
      */
-    public function __construct(SupplierRepository $repository, SupplierValidator $validator)
-    {
-        $this->repository = $repository;
-        $this->validator  = $validator;
+    public function __construct(
+        SupplierRepository $repository,
+        SupplierValidator $validator,
+        ProductTagRepository $productTagRepository
+
+    ) {
+        $this->repository           = $repository;
+        $this->validator            = $validator;
+        $this->productTagRepository = $productTagRepository;
     }
 
     /**
@@ -48,17 +47,23 @@ class SuppliersController extends Controller
      */
     public function index()
     {
-        $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $suppliers = $this->repository->all();
-
+        $this->repository->pushCriteria(app(RequestCriteria::class));
+        $suppliers    = $this->repository->paginate(5);
+        $productTag   = $this->productTagRepository->all();
+        
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $suppliers,
+                'data'        => $suppliers,
+                'productTags' => $productTag
             ]);
         }
 
-        return view('suppliers.index', compact('suppliers'));
+        return view('pages.suppliers.index', [
+            'suppliers'     => $suppliers,
+            'total'         => $this->repository->all()->count(),
+            'productTags'   => $productTag
+        ]);
     }
 
     /**
@@ -73,10 +78,24 @@ class SuppliersController extends Controller
     public function store(SupplierCreateRequest $request)
     {
         try {
-
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
+            $requestTags = $request->only('tags');
+            $tags = [];
+
+            foreach ($requestTags['tags'] as $value) {
+                array_push(
+                    $tags,
+                    $this->productTagRepository->firstOrCreate([
+                        'name' => $value
+                    ])
+                );
+            }
+
             $supplier = $this->repository->create($request->all());
+            foreach ($tags as $tag) {
+                $supplier->productTags()->save($tag);
+            }
 
             $response = [
                 'message' => 'Supplier created.',
@@ -99,6 +118,18 @@ class SuppliersController extends Controller
 
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
+    }
+
+    /**
+     * Show view to create resource
+     */
+    public function create()
+    {
+        $productTag   = $this->productTagRepository->all();
+
+        return view('pages.suppliers.create', [
+            'productTags'   => $productTag
+        ]);
     }
 
     /**
@@ -200,5 +231,19 @@ class SuppliersController extends Controller
         }
 
         return redirect()->back()->with('message', 'Supplier deleted.');
+    }
+
+    public function delete($id)
+    {
+        $supplier = $this->repository->find($id);
+
+        if (request()->wantsJson()) {
+
+            return response()->json([
+                'data' => $supplier,
+            ]);
+        }
+
+        return view('suppliers.show', compact('supplier'));
     }
 }
